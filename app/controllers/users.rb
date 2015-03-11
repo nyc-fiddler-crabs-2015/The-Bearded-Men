@@ -9,6 +9,7 @@ end
 #   Blog.where("user_id = #{params[:id]}").to_json
 # end
 
+
 get '/authentication/logout' do
   session[:user_id] = nil
   redirect '/'
