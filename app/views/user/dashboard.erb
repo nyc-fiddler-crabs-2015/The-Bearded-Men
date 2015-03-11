@@ -1,7 +1,7 @@
 <br>
 <br>
-
-
+<br>
+<br>
 <div>
   <table class="table table-striped">
     <thead>
@@ -14,16 +14,17 @@
     <tbody>
         <% @user_blogs.each do |blog| %>
         <tr>
-          <td><a href="/blogs/<%= blog.id %>"><%= blog.title %></a></td>
+          <td><a href="/blogs/<%=blog.id%>"><%= blog.title %></a></td>
           <td><%= blog.updated_at.strftime("%m/%d/%Y at %I:%M %p")%></td>
-          <td><a href="/blogs/<%= blog.id %>/edit">Edit</a> | Delete</td>
+          <td><a href="/blogs/edit">Edit</a> | Delete</td>
         </tr>
         <% end %>
     </tbody>
   </table>
 </div>
-
+<div>
 <div>
 
+<div class="the_display">
 
-<div>
+</div>
