@@ -1,3 +1,7 @@
+var comment = function(content) {
+    this.content = content;
+}
+
 $(document).ready(function() {
 
      $.ajax({
@@ -7,9 +11,8 @@ $(document).ready(function() {
       .done(function(response) {
         console.log("success:", response)
         $.each(response, function(i) {
-          $(".blogs").append(response[i].title).wrap("<p></p>")
-          $(".blogs").append(response[i].body).wrap("<p></p>")
-          // console.log(response[i])
+          $(".blogs").append($('<h3>').text(response[i].title))
+          $(".blogs").append($('<p>').text(response[i].body))
         })
       })
       .fail(function(err) {
@@ -29,7 +32,25 @@ $(document).ready(function() {
         $(".signup").show();
     });
 
+    ////// Ajax call to Display Javascript comment.
+
+      $('.comment_form').on('submit', function(e) {
+    e.preventDefault();
+    // console.log( $( this ).serialize() );
+    $.ajax({
+      url: '/comment',
+      type: 'post',
+      data: $(this).serialize()
+      })
+    .done(function(data){
+      console.log(data);
+      $(".view_comment").append(data)
+    })
+    });
+
 
 });
+
+
 
 
