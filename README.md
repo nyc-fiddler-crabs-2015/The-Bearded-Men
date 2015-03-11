@@ -1,0 +1,1 @@
+This is a Blog where Men can discuss their Beard Maintainence Habits.
