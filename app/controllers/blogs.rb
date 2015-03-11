@@ -1,3 +1,4 @@
+require 'pry'
 get "/blogs/new" do
   erb :"/blogs/new"
 end
@@ -19,6 +20,13 @@ get "/blogs/:id" do
 end
 
 get "/blogs/:id/edit" do
-  @post = Blog.where("id = #{params[:id]}")
+  # binding.pry
+  @post = Blog.find(params[:id])
   erb :"/blogs/edit"
+end
+
+post "/blogs/:id" do |id|
+  @post = Blog.find_by(id: id)
+  @post.update(title: params[:title], body: params[:body])
+  redirect "/"
 end
