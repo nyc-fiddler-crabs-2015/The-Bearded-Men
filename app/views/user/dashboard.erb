@@ -1,0 +1,29 @@
+<br>
+<br>
+
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Blog Title</th>
+        <th>Last Modified</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @user_blogs.each do |blog| %>
+        <tr>
+          <td><a href="/blogs/<%= blog.id %>"><%= blog.title %></a></td>
+          <td><%= blog.updated_at.strftime("%m/%d/%Y at %I:%M %p")%></td>
+          <td><a href="/blogs/<%= blog.id %>/edit">Edit</a> | Delete</td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
+
+
+<div>
