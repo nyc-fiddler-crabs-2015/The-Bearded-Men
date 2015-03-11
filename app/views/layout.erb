@@ -18,10 +18,40 @@
 	<script src="/js/keyboard.js"></script>
 
 	<script src="/js/application.js"></script>
-
 </head>
 <body>
+
+	<div class="container">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">THE BEARDED MEN</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<% if current_user %>
+					<div class="dropdown">
+						<a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">
+							 <%= current_user.email.capitalize %> <i class="caret"></i></a>
+							<ul class="dropdown-menu">
+							<li><a href="/users/<%= current_user.id %>"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+							<li><a href="/surveys"><i class="fa fa-rocket"></i> All Blogs</a></li>
+								<li class="divider divider-overide"></li>
+								<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>
+								<li class="divider divider-overide"></li>
+								<li><a href="/authentication/logout"><i class="fa fa-sign-out"></i> Sign-out</a></li>
+							</ul>
+						</div>
+						<% else %>
+						<li class="login_button"><a>Login</a></li>
+						<li class="signup_button"><a>SignUp</a></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+
+			<div class="divider"></div>
 			<%= yield %>
+		</div>
 	</body>
 	</html>
 
