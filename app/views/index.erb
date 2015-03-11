@@ -1,3 +1,27 @@
+<div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<div class="blogs">
+<% @response.each do |blog| %>
+  <p><%= blog.title %></p>
+  <p><%= blog.body %></p>
+  <% end %>
+</div>
+
+</div>
+
+
 <div class="login">
   <form action='/authentication/login' method='post'>
     <br>
