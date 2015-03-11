@@ -7,6 +7,11 @@ post "/blogs/new" do
   redirect '/'
 end
 
+delete "/blogs/:id" do
+  Blog.destroy(params[:id])
+  redirect '/'
+end
+
 get "/blogs/:id" do
   params[:id]
   @theblog = Blog.where("id = #{params[:id]}")
