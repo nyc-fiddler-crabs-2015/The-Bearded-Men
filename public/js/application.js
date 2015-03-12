@@ -22,7 +22,6 @@ $(document).ready(function() {
         console.log("complete");
       });
 
-
     $(".login_button").on("click", function(){
         $(".login").show();
     });
@@ -36,7 +35,6 @@ $(document).ready(function() {
 
       $('.comment_form').on('submit', function(e) {
     e.preventDefault();
-    // console.log( $( this ).serialize() );
     $.ajax({
       url: '/comment',
       type: 'post',
@@ -44,7 +42,8 @@ $(document).ready(function() {
       })
     .done(function(data){
       console.log(data);
-      $(".view_comment").append(data)
+      var commentObj = new comment(data);
+            $(".view_comment").append(commentObj.content)
     })
     });
 
